@@ -1,13 +1,236 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.calculator {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: RED;
+}
+
+
+.box-father {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxmodal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.activemodal {
+  display: block;
+}
+
+.close {
+  position: absolute;
+  left: 94%;
+  top: 3%;
+  line-height: 1.1;
+  font-size: 25px;
+  padding: 0.5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.formulario {
+  width: 50rem;
+  max-width: 45rem;
+  position: absolute;
+  transform: translateY(-50rem);
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.79);
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.activeformulario {
+  transform: translateY(0);
+}
+
+.formulario__box {
+  position: static;
+  box-shadow: none;
+  padding: 20px;
+}
+
+.form-img {
+  margin-top: 1.5rem !important;
+  margin: 0 auto;
+  min-width: 15rem;
+  max-width: 15rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  width: 15rem;
+  height: 10rem;
+}
+
+.form-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.textField {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  position: relative;
+}
+
+.input-mm {
+  margin-top: 0.2rem;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  border: 1px solid #767676;
+}
+
+.input-mm input {
+  border: none;
+  width: 90%;
+  border-radius: 12px 0px 0px 12px;
+  margin: 0;
+}
+
+.mm {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+  font-size: 12px;
+  color: #9fb1c1;
+  background: #fff;
+  height: 2.2em;
+  border-radius: 0px 12px 12px 0px;
+}
+
+.ctn-box {
+  color: #9fb1c1;
+}
+
+.ctn-box_title {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.ctn-box__input {
+  outline: none;
+  padding-left: 1em;
+  height: 2em;
+  border-radius: 12px;
+  border: none;
+  border: 1px solid #767676;
+  transition: all 0.1s;
+}
+
+.ctn-box__input::placeholder {
+  color: rgb(159, 177, 193,0.5);
+}
+
+.select {
+  color: #9fb1c1;
+  width: 10rem;
+  height: 1.8rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 15px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 10%;
+  left: 15%;
+}
+
+.input_name {
+  width: 50%;
+}
+
+.textField__input-name {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#resultado {
+  padding-top: 0.7rem;
+  border-top: 1px solid #000;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 3rem;
+  max-height: 3rem;
+}
+
+.btn-box {
+  margin: 0 !important;
+  width: 100%;
+}
+
+.btn-box_submit {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  background: #0D6EFD;
+  margin: 0 auto;
+  width: 20%;
+  height: 2rem;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.btn-box_submit:hover {
+  background: #0b5ed7;
+}
+
+.open-modal {
+  min-width: 10rem;
+  cursor: pointer;
+  transition: all .3s;
+  height: 2rem;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  background: #0D6EFD;
+}
+
+.open-modal:hover {
+  background: #0b5ed7;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
