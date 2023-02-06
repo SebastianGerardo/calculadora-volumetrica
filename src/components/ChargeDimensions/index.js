@@ -28,7 +28,7 @@ const ChargeDimensions = () => {
     if (form.length > 2 && form.width > 2 && form.height > 2) {
         const mm = (form.length / 1000) * (form.width / 1000) * (form.height / 1000);
     
-        resultado.textContent = `La cantidad máxima que puedes importar en un contenedor de 20' es de ${
+        resultado.textContent = `La cantidad máxima que puedes importar en un contenedor de ${form.tipoMedida} es de ${
           map[form.tipoMedida] / mm
         } cajas`;
 
